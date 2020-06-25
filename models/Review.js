@@ -26,11 +26,11 @@ Review.init(
         key: 'id'
       }
     },
-    post_id: {
+    dog_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'post',
+        model: 'dog',
         key: 'id'
       }
     }

@@ -14,7 +14,6 @@ class Dog extends Model {
         },
         attributes: [
           'id',
-          'dog_url',
           'name',
           'created_at',
           [

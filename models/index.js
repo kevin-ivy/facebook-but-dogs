@@ -1,0 +1,61 @@
+const User = require('./User');
+const Dog = require('./Dog');
+const Bone = require('./Bone');
+const Review = require('./Review');
+
+// create associations
+User.hasMany(Dog, {
+    foreignKey: 'user_id'
+});
+
+Dog.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+User.belongsToMany(Dog, {
+  through: Bone,
+  as: 'boned_dogs',
+  foreignKey: 'user_id'
+});
+
+Dog.belongsToMany(User, {
+  through: Bone,
+  as: 'boned_dogs',
+  foreignKey: 'dog_id'
+});
+
+
+Bone.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+Bone.belongsTo(Dog, {
+  foreignKey: 'dog_id'
+});
+
+User.hasMany(Bone, {
+  foreignKey: 'user_id'
+});
+
+Dog.hasMany(Bone, {
+  foreignKey: 'dog_id'
+});
+
+
+Review.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+Review.belongsTo(Dog, {
+  foreignKey: 'dog_id'
+});
+
+User.hasMany(Review, {
+  foreignKey: 'user_id'
+});
+
+Dog.hasMany(Review, {
+  foreignKey: 'dog_id'
+});
+
+module.exports = { User, Dog, Bone, Review };

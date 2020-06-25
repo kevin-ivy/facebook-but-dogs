@@ -44,7 +44,6 @@ router.get('/', (req, res) => {
 });
 
 //Get a single Dog
-// get a single post
 router.get('/:id', (req, res) => {
     Dog.findOne({
         where: {

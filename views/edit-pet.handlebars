@@ -1,0 +1,54 @@
+<article>
+    <a class="text-success" href="/dashboard"> &larr; Back to dashboard</a>
+    <h2>
+        Edit Dog
+    </h2>
+    <form class="edit-post-form">
+        <div>
+            <div>
+                <label for="post-title">Name</label>
+                <input name="post-title" type="text" value="{{post.title}}" />
+            </div>
+            <div>
+                <label for="post-title">Age</label>
+                <input name="post-title" type="text" value="{{post.age}}" />
+            </div>
+            <div>
+                <label for="post-gender">Gender</label>
+                <input name="post-title" type="text" value="{{post.gender}}" />
+            </div>
+            <div>
+                <label for="post-breed">Breed</label>
+                <input name="post-title" type="text" value="{{post.breed}}" />
+            </div>
+        
+        <div>
+            <label for="post-content">About your dog</label>
+            <input class="textarea form-control input-lg" name="post-content" type="text" value="{{post.post_content}}"></input>
+        </div>
+        
+        </div>
+        <div>
+        {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+        |
+        <a class="text-success" href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+        </div>
+        <button type="submit" class="btn btn-dark">Save dog</button>
+        <button type="button" class="btn btn-danger delete-post-btn">Delete dog</button>
+    </form>
+</article>
+
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success">Add comment</button>
+    </div>
+    {{> comments post.comments}}    
+</form>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

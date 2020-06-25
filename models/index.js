@@ -1,6 +1,6 @@
 const User = require('./User');
 const Dog = require('./Dog');
-const Bone = require('./Bone');
+const Bone = require('./Bones');
 const Review = require('./Review');
 
 // create associations
@@ -47,7 +47,8 @@ Review.belongsTo(User, {
 });
 
 Review.belongsTo(Dog, {
-  foreignKey: 'dog_id'
+  foreignKey: 'dog_id',
+  onDelete: 'CASCADE'
 });
 
 User.hasMany(Review, {

@@ -1,0 +1,49 @@
+{{#if posts.length}}
+<section>
+    <h2>Your Dogs</h2>
+    <div class="card-deck">
+        {{#each posts as |post|}}
+        <div class="col-sm-3">
+        {{> post-info post}}
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link text-success">Edit dog</a>
+        </div>
+        {{/each}}
+    </div>
+</section>
+{{/if}}
+<section>
+    <h2 class="add">Add a dog</h2>
+<!--<was form class="new-post-form">-->
+    <form class="new-post-form">
+        <div>
+            <!--was <label for="post-title">Title</label>-->
+            <label for="post-title">Name</label>
+            <!--was <input type="text" id="post-title" name="post-title" />-->
+            <input type="text" id="post-title" name="post-title" />
+        </div>
+        <div>
+            <!--new field-->
+            <label for="post-age">Age</label>
+            <input type="text" id="pet-age" name="post-age" />
+        </div>
+        <div>
+            <!--new field-->
+            <label for="post-gender">Gender</label>
+            <input type="text" id="post-gender" name="postt-gender" />
+        </div>
+        <div>
+            <!--new field-->
+            <label for="post-breed">Breed</label>
+            <input type="text" id="post-breed" name="post-breed" />
+        </div>
+        <div>
+            <!--<was label for="post-content">Content</label>-->
+            <label for="post-content">About your dog</label>
+            <!-- was <input class="form-control input-lg" id="post-content" name="post-content"></input>-->
+            <input class="form-control input-lg" id="post-content" name="post-content"></input></input>
+        </div>
+        <!--<was button type="submit" class="btn btn-info mb-5">Create</button>-->
+        <button type="submit" class="btn btn-success mb-5">Add</button>
+    </form>
+</section>
+<script src="/javascript/add-post.js"></script>

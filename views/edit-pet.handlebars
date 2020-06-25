@@ -29,7 +29,7 @@
         
         </div>
         <div>
-        {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+        {{post.vote_count}} {{format_plural "bone" post.vote_count}} by you on {{format_date post.created_at}}
         |
         <a class="text-success" href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>

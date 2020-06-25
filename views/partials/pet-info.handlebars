@@ -1,5 +1,5 @@
 <article class="post">
-        <div class="title card border-success bg-light" style="width: 20rem;">
+        <div class="title card border-success bg-light" style="width: 22rem;">
             <img class="card-img-top" src="https://placedog.net/640/480?random" alt="Card image cap">
             <div class="card-header border-success">
                 <a class="card-title font-weight-bold text-decoration-none text-success" href="/post/{{id}}" target="_blank">{{title}}</a>
@@ -8,7 +8,7 @@
                 <div class="card-text">{{post_content}}</div>
             </div>
             <div class="meta card-footer border-success text-right">
-                <small class="text-muted">{{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+                <small class="text-muted">{{vote_count}} {{format_plural "bone" vote_count}} by {{user.username}} on {{format_date created_at}}
                 |
                 <a class="text-success" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a></small>
             </div>

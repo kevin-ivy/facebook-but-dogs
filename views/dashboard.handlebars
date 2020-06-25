@@ -3,7 +3,7 @@
     <h2>Your Dogs</h2>
     <div class="card-deck">
         {{#each posts as |post|}}
-        <div class="col-sm-3">
+        <div>
         {{> post-info post}}
         <a href="/dashboard/edit/{{post.id}}" class="edit-link text-success">Edit dog</a>
         </div>

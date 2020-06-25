@@ -1,0 +1,34 @@
+{{#if loggedIn}}
+<div class="row post-list">
+    {{#each posts as |post|}}
+    
+        {{> post-info post }}
+    {{else}}
+    There are currently no pets
+    {{/each}}
+</div>
+{{else}}
+<div class="jumbotron">
+    <h1 class="display-4">What's UpDog?</h1>
+    <p class="lead">Connect with other dog owners to help your furry friends meet up to play!</p>
+
+    <form class="signup-form">
+        <div>
+            <label for="username-signup">Name</label>
+            <input type="text" id="username-signup" placeholder="Ex. John D"/>
+        </div>
+        <div>
+            <label for="email-signup">Email address</label>
+            <input type="text" id="email-signup" placeholder="name@example.com"/>
+        </div>
+        <div>
+            <label for="password-signup">Password</label>
+            <input type="password" id="password-signup" placeholder="Password"/>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success text-white">Sign Up</button>
+        </div>
+    </form>
+</div>
+<script src="/javascript/signup.js"></script>
+{{/if}}

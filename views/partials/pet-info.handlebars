@@ -8,9 +8,13 @@
                 <div class="card-text">{{post_content}}</div>
             </div>
             <div class="meta card-footer border-success text-right">
-                <small class="text-muted">{{vote_count}} {{format_plural "bone" vote_count}} by {{user.username}} on {{format_date created_at}}
-                |
-                <a class="text-success" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a></small>
+                <small class="text-muted">
+                    {{vote_count}} {{format_plural "bone" vote_count}} 
+                    | <a class="text-success" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                    | City, State
+                    </br>
+                    Owned by {{user.username}} added {{format_date created_at}}
+                </small>
             </div>
         </div>
 </article>

@@ -17,10 +17,10 @@ const sess = {
     cookie: {// automatically sign out user if idle on page more than 10 minutes
         expires: 10 * 60 * 1000},
     resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+    //saveUninitialized: true,
+    //store: new SequelizeStore({
+        //db: sequelize
+    //})
 };
 
 const app = express();

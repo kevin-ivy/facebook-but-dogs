@@ -30,7 +30,8 @@ Bone.belongsTo(User, {
 });
 
 Bone.belongsTo(Dog, {
-  foreignKey: 'dog_id'
+  foreignKey: 'dog_id',
+  onDelete: 'CASCADE'
 });
 
 User.hasMany(Bone, {

@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'name',
-            'location',
+            //'location',
             'age',
+            'gender',
             'breed',
             'about',
             'created_at',
@@ -36,7 +37,8 @@ router.get('/', (req, res) => {
             attributes: ['username']
             }
         ]
-    }).then(dbDogData => res.json(dbDogData))
+    })
+    .then(dbDogData => res.json(dbDogData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -52,7 +54,8 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'name',
-            'location',
+            //'location',
+            'gender',
             'age',
             'breed',
             'about',
@@ -94,12 +97,14 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Dog.create({
         name: req.body.name,
-        location: req.body.location,
+        //location: req.body.location,
         age: req.body.age,
+        gender: req.body.gender,
         breed: req.body.breed,
         about: req.body.about,
         user_id: req.session.user_id
-    }).then(dbDogData => res.json(dbDogData))
+    })
+    .then(dbDogData => res.json(dbDogData))
     .catch(err => {
     console.log(err);
     res.status(500).json(err);

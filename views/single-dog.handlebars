@@ -1,19 +1,19 @@
-{{> post-info post }}
+{{> dog-info dog }}
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="review-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="review-body"></textarea>
     </div>
 
     <div>
-        <button type="submit" class="btn btn-success">Add comment</button>
-        <button type="button" class="upvote-btn btn btn-success">Give a dog a <i class="fas fa-bone"></i> !</button>
+        <button type="submit" class="btn btn-success">Add review</button>
+        <button type="button" class="upbone-btn btn btn-success">Give a dog a <i class="fas fa-bone"></i> !</button>
     </div>
     </form>
 {{/if}}
-{{> comments post.comments}}    
+{{> reviews dog.reviews}}    
 
 {{#if loggedIn}}
-<script src="/javascript/review.js"></script> <!--change -->
-<script src="/javascript/upbone.js"></script><!--change -->
+<script src="/javascript/review.js"></script>
+<script src="/javascript/upbone.js"></script>
 {{/if}}

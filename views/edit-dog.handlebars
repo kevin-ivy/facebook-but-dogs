@@ -3,50 +3,50 @@
     <h2>
         Edit Dog
     </h2>
-    <form class="edit-post-form">
+    <form class="edit-dog-form">
         <div>
             <div>
                 <label for="name">Name</label>
-                <input name="name" type="text" value="{{post.name}}" />
+                <input name="name" type="text" value="{{dog.name}}" />
             </div>
             <div>
                 <label for="age">Age</label>
-                <input name="age" type="text" value="{{post.age}}" />
+                <input name="age" type="text" value="{{dog.age}}" />
             </div>
             <div>
                 <label for="gender">Gender</label>
-                <input name="gender" type="text" value="{{post.gender}}" />
+                <input name="gender" type="text" value="{{dog.gender}}" />
             </div>
             <div>
                 <label for="breed">Breed</label>
-                <input name="breed" type="text" value="{{post.breed}}" />
+                <input name="breed" type="text" value="{{dog.breed}}" />
             </div>
         
         <div>
             <label for="about">About your dog</label>
-            <input class="textarea form-control input-lg" name="about" type="text" value="{{post.about}}"></input>
+            <input class="textarea form-control input-lg" name="about" type="text" value="{{dog.about}}"></input>
         </div>
         
         </div>
         <div>
-        {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+        {{dog.bone_count}} {{format_plural "bone" dog.bone_count}} by you on {{format_date dog.created_at}}
         |
-        <a class="text-success" href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+        <a class="text-success" href="/dog/{{dog.id}}">{{dog.reviews.length}} {{format_plural "review" dog.reviews.length}}</a>
         </div>
         <button type="submit" class="btn btn-dark">Save dog</button>
-        <button type="button" class="btn btn-danger delete-post-btn">Delete dog</button>
+        <button type="button" class="btn btn-danger delete-dog-btn">Delete dog</button>
     </form>
 </article>
 
-<form class="comment-form">
+<form class="review-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="review-body"></textarea>
     </div>
 
     <div>
-        <button type="submit" class="btn btn-success">Add comment</button>
+        <button type="submit" class="btn btn-success">Add review</button>
     </div>
-    {{> comments post.comments}}    
+    {{> reviews dog.reviews}}    
 </form>
 
 <script src="/javascript/edit-dog.js"></script>

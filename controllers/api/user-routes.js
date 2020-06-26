@@ -1,6 +1,5 @@
-
 const router = require('express').Router();
-const {User, Dog, Review} = require("../../models");
+const {User, Bone, Dog, Review} = require("../../models");
 const withAuth = require('../../utils/auth');
 
 //Get all users
@@ -29,13 +28,14 @@ router.get('/:id', (req, res) => {
                 attributes: [
                     'id', 
                     'name', 
-                    'location', 
+                    //'location', 
                     'age',
+                    'gender',
                     'breed',
                     'about'
                 ]
             },
-            {
+            /*{
                 model: Review,
                 attributes: [
                     'id', 
@@ -45,7 +45,21 @@ router.get('/:id', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
+            },*/
+            {
+                model: Review,
+                attributes: ['id', 'review_text', 'created_at'],
+                include: {
+                    model: Dog,
+                    attributes: ['name']
+                }
             },
+            {
+                model: Dog,
+                attributes: ['name'],
+                through: Bone,
+                as: 'boned_dogs'
+            }
         ]
     }).then(dbUserData => {
         if (!dbUserData) {
@@ -133,7 +147,8 @@ router.put('/:id', (req, res) => {
         return;
     }
     res.json(dbUserData);
-    }).catch(err => {
+    })
+    .catch(err => {
     console.log(err);
     res.status(500).json(err);
     });
@@ -151,7 +166,8 @@ router.delete('/:id', withAuth, (req, res) => {
         return;
     }
     res.json(dbUserData);
-    }).catch(err => {
+    })
+    .catch(err => {
     console.log(err);
     res.status(500).json(err);
     });

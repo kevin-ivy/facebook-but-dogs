@@ -12,7 +12,7 @@
     font-family: 'Roboto', sans-serif;
     }
     
-    .post-list {
+.dog-list {
         margin: 0;
         padding: 0;
     }
@@ -85,13 +85,13 @@
     .jumbotron {
         background-color: rgba(233, 236, 239, 0.5)
     }
-    .post {
+    .dog {
     margin: 2%;
     margin-left: 0;
     line-height: 150%;
     }
     
-    .post .title span {
+    .dog .title span {
     font-style: italic;
     font-size: 90%;
     color: #7d7d7d;
@@ -99,23 +99,23 @@
     
     .edit-link {
     display: block;
-    margin: -1.5% 0 2% 16px;
+    margin: 1.5% 0 2% 16px;
     }
 
-    .comment-form {
-    margin-bottom: 2%;
+    .review-form {
+    margin-top: 2%;
     }
-    
-    .comment {
+
+    .review {
     padding: 1%;
     margin-bottom: 1%;
     }
     
-    .comment:nth-child(odd) {
+    .review:nth-child(odd) {
     background-color: #fdf4ccbe;
     }
     
-    .comment .meta {
+    .review .meta {
     font-size: 90%;
     margin-bottom: .5%;
     opacity: .6;
@@ -125,7 +125,7 @@
     width: 300px;
     }
     
-    .edit-post-form {
+    .edit-dog-form {
     margin-bottom: 5%;
     }
     

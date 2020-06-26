@@ -1,11 +1,11 @@
-{{#if posts.length}}
+{{#if dogs.length}}
 <section>
     <h2>Your Dogs</h2>
-    <div class="card-deck">
-        {{#each posts as |post|}}
+    <div class="row">
+        {{#each dogs as |dog|}}
         <div>
-        {{> post-info post}}
-        <a href="/dashboard/edit/{{post.id}}" class="edit-link text-success">Edit dog</a>
+        {{> dog-info dog}}
+        <a href="/dashboard/edit/{{dog.id}}" class="edit-link text-success">Edit dog</a>
         </div>
         {{/each}}
     </div>
@@ -14,7 +14,7 @@
 <section>
     <h2 class="add">Add a dog</h2>
 <!--<was form class="new-post-form">-->
-    <form class="new-post-form">
+    <form class="new-dog-form">
         <div>
             <!--was <label for="post-title">Title</label>-->
             <label for="name">Name</label>

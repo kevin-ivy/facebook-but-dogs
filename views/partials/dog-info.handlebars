@@ -1,9 +1,8 @@
-
-<article class="post">
-        <div class="title card border-success bg-light" style="width: 24rem;">
+<article class="dog mr-4 mb-4">
+        <div class="title card h-100 border-success bg-light" style="width: 23rem;">
             <img class="card-img-top" src="https://placedog.net/640/480?random" alt="Card image cap">
-            <div class="card-body border-success">
-                <a class="card-title font-weight-bold text-decoration-none text-success" href="/post/{{id}}"><h3>{{name}}</h3></a>
+            <div class="card-header h-100">
+                <a class="card-title font-weight-bold text-decoration-none text-success" href="/dog/{{id}}"><h3>{{name}}</h3></a>
                 <p class="card-text">{{about}}</p>
             </div>
             <ul class="list-group list-group-flush bg-light">
@@ -12,10 +11,10 @@
                 <li class="list-group-item">{{breed}}</li>
                 
             </ul>
-            <div class="meta card-footer border-success text-right">
+            <div class="meta card-footer text-right">
                 <small class="text-muted">
-                    {{vote_count}} {{format_plural "bone" vote_count}} 
-                    | <a class="text-success" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                    {{bone_count}} {{format_plural "bone" bone_count}} 
+                    | <a class="text-success" href="/dog/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
                     | City, State
                     </br>
                     Owned by {{user.username}} added {{format_date created_at}}

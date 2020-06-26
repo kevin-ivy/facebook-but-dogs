@@ -39,24 +39,33 @@ Dog.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    location: {
+    /*location: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    },*/
     age: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    breed: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    about: {
+    gender: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        // this means the password must be at least four characters long
-        len: [4,150]
+          len: [1]
+      }
+    },
+    breed: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
       }
     },
     user_id: {

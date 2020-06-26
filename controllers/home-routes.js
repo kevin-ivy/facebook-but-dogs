@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     Dog.findAll({
         attributes: [
             'id',
-            'title',
+            'name',
             'location',
             'age',
             'breed',

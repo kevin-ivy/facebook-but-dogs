@@ -1,4 +1,3 @@
-
 const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
@@ -18,9 +17,9 @@ const sess = {
         expires: 10 * 60 * 1000},
     resave: false,
     saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+    // store: new SequelizeStore({
+    //     db: sequelize
+    // })
 };
 
 const app = express();

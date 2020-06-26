@@ -61,6 +61,7 @@ router.get('/:id', (req, res) => {
 
 //Create a new user account
 router.post('/', (req, res) => {
+
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -71,6 +72,7 @@ router.post('/', (req, res) => {
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
         
+            
             res.json(dbUserData);
         });
     }).catch(err => {

@@ -48,8 +48,7 @@ router.get('/', withAuth, (req, res) => {
 router.get('/edit/:id', withAuth, (req, res) => {
     Dog.findOne({
         where: {
-        // use the ID from the session
-        user_id: req.session.user_id
+            id: req.params.id
         },
         attributes: [
             'id',

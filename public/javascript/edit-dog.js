@@ -1,5 +1,7 @@
 async function editFormHandler(event) {
+    
     event.preventDefault();
+    
     const name = document.querySelector('input[name="name"]').value;
     const age = document.querySelector('input[name="age"]').value;
     const gender = document.querySelector('input[name="gender"]').value;

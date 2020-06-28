@@ -15,6 +15,11 @@ class Dog extends Model {
         attributes: [
           'id',
           'name',
+          //'location',
+          'gender',
+          'age',
+          'breed',
+          'about',
           'created_at',
           [
             sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'),

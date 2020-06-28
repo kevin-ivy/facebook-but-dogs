@@ -12,14 +12,14 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // will need to update this
 const sess = {
-    secret: 'Super secret secret',
+    secret: 'Different Secret',
     cookie: {// automatically sign out user if idle on page more than 10 minutes
         expires: 10 * 60 * 1000},
     resave: false,
     saveUninitialized: true,
-    // store: new SequelizeStore({
-    //     db: sequelize
-    // })
+    store: new SequelizeStore({
+        db: sequelize
+    })
 };
 
 const app = express();

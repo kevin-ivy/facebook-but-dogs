@@ -1,18 +1,18 @@
-async function commentFormHandler(event) {
+async function reviewFormHandler(event) {
     event.preventDefault();
 
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
+    const review_text = document.querySelector('textarea[name="review-body"]').value.trim();
 
     const dog_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    if (comment_text) {
-        const response = await fetch('/api/comments', {
+    if (review_text) {
+        const response = await fetch('/api/reviews', {
             method: 'POST',
             body: JSON.stringify({
                 dog_id,
-                comment_text
+                review_text
             }),
             headers: {
             'Content-Type': 'application/json'
@@ -27,4 +27,4 @@ async function commentFormHandler(event) {
     }
 }
 
-document.querySelector('.review-form').addEventListener('submit', commentFormHandler);
+document.querySelector('.review-form').addEventListener('submit', reviewFormHandler);

@@ -13,13 +13,26 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  Review.findAll({
+     where: {
+        dog_id: req.params.id
+     }
+  })
+     .then(dbReviewData => res.json(dbReviewData))
+     .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+     });
+});
+
 //Create a Review
 router.post('/', withAuth, (req, res) => {
     // check the session
     if (req.session) {
         Review.create({
         review_text: req.body.review_text,
-        post_id: req.body.post_id,
+        dog_id: req.body.dog_id,
         user_id: req.session.user_id
         })
         .then(dbReviewData => res.json(dbReviewData))

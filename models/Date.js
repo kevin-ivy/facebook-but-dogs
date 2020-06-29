@@ -1,0 +1,49 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class Date extends Model {}
+
+Date.init(
+  {
+    // columns will go here
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    //Include brief message for recipient
+    date_text: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validte: {
+            len: [1]
+        }
+    },
+    //Include user_id for the sender
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
+    //Include ID for dog being requested
+    dog_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'dog',
+        key: 'id'
+      }
+    }
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'date'
+  }
+);
+
+module.exports = Date;

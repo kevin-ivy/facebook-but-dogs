@@ -14,7 +14,16 @@
 <section>
     <h2 class="add">Add a dog</h2>
 <!--<was form class="new-post-form">-->
-    <form class="new-dog-form">
+    <!--<MULTER ADDED>-->
+    <form class="new-dog-form" method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+        <!--<MULTER>-->
+        <div>
+            <label>Select your profile picture:</label>
+            <input type="file" name="profile_pic" />
+        </div>
+        <div>
+            <input type="submit" name="btn_upload_profile_pic" value="Upload" />
+        </div>
         <div>
             <!--was <label for="post-title">Title</label>-->
             <label for="name">Name</label>

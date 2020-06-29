@@ -1,4 +1,4 @@
-
+  
 const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
@@ -7,7 +7,9 @@ const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
 const session = require('express-session');
-
+//MULTER
+const multer = require('multer');
+//const helpers = require('./helpers');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -21,6 +23,18 @@ const sess = {
         db: sequelize
     //})
 };
+
+//MULTER storage
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+      cb(null, 'uploads/');
+  },
+
+  // By default, multer removes file extensions so let's add them back
+  filename: function(req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT || 3001;

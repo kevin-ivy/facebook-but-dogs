@@ -1,6 +1,8 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
+    //MULTER added profile pic
+    const profilePic = document.querySelector('input[name="profile_pic"]').value;
     const name = document.querySelector('input[name="name"]').value;
     const age = document.querySelector('input[name="age"]').value;
     const gender = document.querySelector('input[name="gender"]').value;
@@ -10,6 +12,7 @@ async function newFormHandler(event) {
     const response = await fetch(`/api/dogs`, {
     method: 'POST',
     body: JSON.stringify({
+        profilePic, //MULTER added profile pic
         name,
         age,
         gender,

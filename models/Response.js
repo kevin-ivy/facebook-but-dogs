@@ -15,7 +15,7 @@ Response.init(
     response_text: {
         type: DataTypes.STRING,
         allowNull: false,
-        validte: {
+        validate: {
             len: [1]
         }
     },
@@ -47,7 +47,7 @@ Response.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'review'
+    modelName: 'response'
   }
 );
 

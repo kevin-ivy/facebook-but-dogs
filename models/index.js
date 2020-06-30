@@ -44,7 +44,6 @@ Dog.hasMany(Bone, {
   foreignKey: 'dog_id'
 });
 
-
 Review.belongsTo(User, {
   foreignKey: 'user_id'
 });

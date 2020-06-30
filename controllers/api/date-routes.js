@@ -15,16 +15,16 @@ router.get('/', (req, res) => {
 
 //Find a single play date request
 router.get('/:id', (req, res) => {
-  Date.findAll({
-     where: {
-        dog_id: req.params.id
-     }
-  })
-     .then(dbDateData => res.json(dbDateData))
-     .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-     });
+    Date.findAll({
+        where: {
+            dog_id: req.params.id
+        }
+    })
+        .then(dbDateData => res.json(dbDateData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
 });
 
 //Create a Play Date

@@ -14,16 +14,16 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Review.findAll({
-     where: {
-        dog_id: req.params.id
-     }
-  })
-     .then(dbReviewData => res.json(dbReviewData))
-     .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-     });
+    Review.findAll({
+        where: {
+            dog_id: req.params.id
+        }
+    })
+        .then(dbReviewData => res.json(dbReviewData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
 });
 
 //Create a Review

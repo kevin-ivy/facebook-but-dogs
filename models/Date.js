@@ -15,7 +15,7 @@ Date.init(
     date_text: {
         type: DataTypes.STRING,
         allowNull: false,
-        validte: {
+        validate: {
             len: [1]
         }
     },

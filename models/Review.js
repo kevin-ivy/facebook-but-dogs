@@ -11,12 +11,11 @@ Review.init(
         autoIncrement: true
     },
     review_text: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            // this means the review must be at least one character long
-            len: [1]
-        }
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     user_id: {
         type: DataTypes.INTEGER,

@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get all reviews for one dog
 router.get('/:id', (req, res) => {
     Review.findAll({
         where: {

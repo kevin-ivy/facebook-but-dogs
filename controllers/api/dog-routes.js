@@ -183,7 +183,7 @@ router.post('/', upload.single('dogImage'), (req, res) => {
         gender: req.body.gender,
         breed: req.body.breed,
         about: req.body.about,
-        dogImage: req.body.file,
+        dogImage: req.file.path,
         user_id: req.session.user_id
     })
     .then(dbDogData => res.json(dbDogData))

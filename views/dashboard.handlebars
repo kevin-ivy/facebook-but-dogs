@@ -1,11 +1,11 @@
 {{#if dogs.length}}
 <section>
     <h2>Your Dogs</h2>
-    <div class="row">
+    <div class="row dog-list">
         {{#each dogs as |dog|}}
-        <div>
+        <div
         {{> dog-info dog}}
-        <a href="/dashboard/edit/{{dog.id}}" class="edit-link text-success">Edit dog</a>
+        <a href="/dashboard/edit/{{dog.id}}" class="edit-link text-success ">Edit dog</a>
         </div>
         {{/each}}
     </div>

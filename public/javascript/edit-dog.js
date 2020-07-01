@@ -7,6 +7,8 @@ async function editFormHandler(event) {
     const gender = document.querySelector('input[name="gender"]').value;
     const breed = document.querySelector('input[name="breed"]').value;
     const about = document.querySelector('input[name="about"]').value;
+    const dogImage = document.querySelector('input[name="dogImage"]').value;
+
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -17,7 +19,8 @@ async function editFormHandler(event) {
             age,
             gender,
             breed,
-            about
+            about, 
+            dogImage
         }),
         headers: {
             'Content-Type': 'application/json'

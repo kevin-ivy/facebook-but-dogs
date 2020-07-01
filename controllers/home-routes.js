@@ -73,6 +73,7 @@ router.get('/dog/:id', (req, res) => {
             'gender',
             'breed',
             'about',
+            'dogImage',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
         ],

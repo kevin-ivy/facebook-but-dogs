@@ -75,9 +75,16 @@ Dog.init(
       }
     },
     dogImage: { 
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      isURL: true
+      }
+    },
+    /*dogImage: { 
       type: DataTypes.BLOB('long'),
       allowNull: false,
-    },
+    },*/
     user_id: {
       type: DataTypes.INTEGER,
       references: {

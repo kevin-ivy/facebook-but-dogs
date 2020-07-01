@@ -14,7 +14,8 @@
 <section>
     <h2 class="add">Add a dog</h2>
 <!--<was form class="new-post-form">-->
-    <form class="new-dog-form" action="/upload" method="post" enctype="multipart/form-data">
+    <!--<form class="new-dog-form" action="/upload" method="post" enctype="multipart/form-data">-->
+    <form class="new-dog-form">
         <div>
             <!--was <label for="post-title">Title</label>-->
             <label for="name">Name</label>
@@ -40,11 +41,13 @@
             <!--<was label for="post-content">Content</label>-->
             <label for="about">About your dog</label>
             <!-- was <input class="form-control input-lg" id="post-content" name="post-content"></input>-->
-            <input class="form-control input-lg" id="about" name="about"></input></input>
+            <input class="form-control input-lg" id="about" name="about"></input>
         </div>
         <div>
-            <input type="file" accept="image/*" name="photo" >
-            <input type="submit" value="upload" class="btn btn-success">
+            <label for="about">Your dog's photo</label>
+            <input type="text" id="dogImage" name="dogImage" placeholder="image url"/>
+            <!--<input type="file" accept="image/*" name="dogImage" >-->
+            <!--<input type="submit" value="upload" class="btn btn-success">-->
         </div>
         
         <!--<was button type="submit" class="btn btn-info mb-5">Create</button>-->

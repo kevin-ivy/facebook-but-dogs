@@ -3,7 +3,7 @@ const {User, Dog, Bone, Review} = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
-
+/*
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './uploads/');
@@ -81,8 +81,8 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
-/*
+});*/
+
 //Pull all Dogs
 router.get('/', (req, res) => {
     Dog.findAll({
@@ -94,6 +94,7 @@ router.get('/', (req, res) => {
             'gender',
             'breed',
             'about',
+            'dogImage',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
         ],
@@ -123,7 +124,7 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});*/
+});
 
 //Get a single Dog
 router.get('/:id', (req, res) => {
@@ -175,7 +176,7 @@ router.get('/:id', (req, res) => {
 });
 
 //Create a new Dog account
-router.post('/', upload.single('dogImage'), (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Dog.create({
         name: req.body.name,
         //location: req.body.location,
@@ -183,7 +184,7 @@ router.post('/', upload.single('dogImage'), (req, res) => {
         gender: req.body.gender,
         breed: req.body.breed,
         about: req.body.about,
-        dogImage: req.file.path,
+        dogImage: req.body.dogImage,
         user_id: req.session.user_id
     })
     .then(dbDogData => res.json(dbDogData))
@@ -192,7 +193,26 @@ router.post('/', upload.single('dogImage'), (req, res) => {
     res.status(500).json(err);
     });
 });
-
+/*router.post('/upload', upload.single('dogImage'), (req, res) => {
+    message : "Error! in image upload."
+    if (!req.file) {
+        console.log("No file received");
+          message = "Error! in image upload."
+        res.render('index',{message: message, status:'danger'});
+    
+      } else {
+        console.log('file received');
+        console.log(req);
+        var sql = "INSERT INTO `file`(`name`, `type`, `size`) VALUES ('" + req.file.filename + "', '"+req.file.mimetype+"', '"+req.file.size+"')";
+ 
+                var query = db.query(sql, function(err, result) {
+                   console.log('inserted data');
+                });
+        message = "Successfully! uploaded";
+        res.render('index',{message: message, status:'success'});
+ 
+      }
+});*/
 
 /*//Create a new Dog account
 router.post('/', withAuth, (req, res) => {

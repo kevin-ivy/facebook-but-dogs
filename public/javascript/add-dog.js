@@ -6,6 +6,8 @@ async function newFormHandler(event) {
     const gender = document.querySelector('input[name="gender"]').value;
     const breed = document.querySelector('input[name="breed"]').value;
     const about = document.querySelector('input[name="about"]').value;
+    const dogImage = document.querySelector('input[name="dogImage"]').value;
+
 
     const response = await fetch(`/api/dogs`, {
     method: 'POST',
@@ -14,7 +16,8 @@ async function newFormHandler(event) {
         age,
         gender,
         breed,
-        about
+        about,
+        dogImage
     }),
     headers: {
         'Content-Type': 'application/json'

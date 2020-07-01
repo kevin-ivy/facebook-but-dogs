@@ -2,7 +2,87 @@ const router = require('express').Router();
 const {User, Dog, Bone, Review} = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
+const multer = require('multer');
 
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, new Date().toISOString() + file.originalname);
+    }
+});
+
+// Check File Type
+function checkFileType(file, cb){
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    // Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    // Check mime
+    const mimetype = filetypes.test(file.mimetype);
+
+    if(mimetype && extname){
+        return cb(null,true);
+    } else {
+    cb('Error: Images Only!');
+    }
+}
+
+const upload = multer({
+storage: storage,
+limits: {
+    fileSize: 1024 * 1024 * 5
+},
+fileFilter: function(req, file, cb){
+    checkFileType(file, cb);
+    }
+});
+
+
+//Pull all Dogs
+router.get('/', (req, res) => {
+    Dog.findAll({
+        attributes: [
+            'id',
+            'name',
+            //'location',
+            'age',
+            'gender',
+            'breed',
+            'about',
+            //'dogImage',
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
+        ],
+        order: [['created_at', 'DESC']], 
+        include: [
+            {
+            model: Review,
+            attributes: [
+                'id', 
+                'review_text', 
+                'dog_id', 
+                'user_id', 
+                'created_at'],
+            include: {
+                model: User,
+                attributes: ['username']
+                }
+            },
+            {
+            model: User,
+            attributes: ['username']
+            }
+        ]
+    })
+    .then(dbDogData => res.json(dbDogData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+/*
 //Pull all Dogs
 router.get('/', (req, res) => {
     Dog.findAll({
@@ -43,7 +123,7 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+});*/
 
 //Get a single Dog
 router.get('/:id', (req, res) => {
@@ -59,6 +139,7 @@ router.get('/:id', (req, res) => {
             'age',
             'breed',
             'about',
+            'dogImage',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
         ],
@@ -94,6 +175,26 @@ router.get('/:id', (req, res) => {
 });
 
 //Create a new Dog account
+router.post('/', upload.single('dogImage'), (req, res) => {
+    Dog.create({
+        name: req.body.name,
+        //location: req.body.location,
+        age: req.body.age,
+        gender: req.body.gender,
+        breed: req.body.breed,
+        about: req.body.about,
+        dogImage: req.body.file,
+        user_id: req.session.user_id
+    })
+    .then(dbDogData => res.json(dbDogData))
+    .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+    });
+});
+
+
+/*//Create a new Dog account
 router.post('/', withAuth, (req, res) => {
     Dog.create({
         name: req.body.name,
@@ -109,7 +210,7 @@ router.post('/', withAuth, (req, res) => {
     console.log(err);
     res.status(500).json(err);
     });
-});
+});*/
 
 //Give Dog a Bone
 router.put('/upbone', withAuth, (req, res) => {
@@ -142,6 +243,8 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
 
 //Delete Dog Account
 router.delete('/:id', withAuth, (req, res) => {

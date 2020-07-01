@@ -20,6 +20,7 @@ class Dog extends Model {
           'age',
           'breed',
           'about',
+          'dogImage',
           'created_at',
           [
             sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'),
@@ -72,6 +73,10 @@ Dog.init(
       validate: {
         len: [1]
       }
+    },
+    dogImage: { 
+      type: DataTypes.BLOB('long'),
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,

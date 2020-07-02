@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
 //Find a single play date request
 router.get('/:id', (req, res) => {
   Date.findAll({
@@ -61,6 +63,7 @@ router.get('/dogs/:dog_id', (req, res) => {
        });
   });
 
+
 //Create a Play Date
 router.post('/', withAuth, (req, res) => {
     // check the session
@@ -77,7 +80,6 @@ router.post('/', withAuth, (req, res) => {
         });
     }
 });
-
 //Not including options to Delete or Update Play Dates at this time
 
 module.exports = router;

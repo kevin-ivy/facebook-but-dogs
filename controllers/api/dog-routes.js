@@ -126,7 +126,6 @@ router.get('/:id', (req, res) => {
 //Create a new Dog account
 router.post('/', upload.single('dogImage'), (req, res) => {
     console.log(req.file);
-    //split the url into an array and then get the last chunk and render it out in the send req.
     Dog.create({
         
         name: req.body.name,

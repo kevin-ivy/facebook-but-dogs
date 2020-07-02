@@ -13,10 +13,10 @@ font-family: 'Roboto', sans-serif;
 }
     
 .home {
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .dog-list {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -87,6 +87,9 @@ background-position: center center;
 
 .jumbotron {
     background-color: rgba(233, 236, 239, 0.5)
+}
+.card {
+    width: 23rem;
 }
 .dog {
 margin: 2%;
@@ -172,4 +175,12 @@ justify-content: center;
 padding: 1%;
 font-size: 110%;
 font-weight: 700;
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+    /* this will be applied on any screen smaller than 575 px*/
+.card {
+    width: 21.5rem;
+}
 }

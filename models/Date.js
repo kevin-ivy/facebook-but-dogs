@@ -19,6 +19,13 @@ Date.init(
             len: [1]
         }
     },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     //Include user_id for the sender
     user_id: {
       type: DataTypes.INTEGER,

@@ -113,8 +113,43 @@ router.get('/dog/:id', (req, res) => {
         });
 });
 
+//Request playdate with dog
+router.get('/dog/:id/request-date', (req, res) => {
+    Dog.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'name',
+            'age',
+            'gender',
+            'breed',
+            'about',
+            'dogImage',
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
+        ],
+        include: [
+            {
+            model: User,
+            attributes: ['username']
+            }
+        ]
+    })
+    .then(dbDogData => {
+        const dog = dbDogData.get({ plain: true });
 
-module.exports = router;
+        res.render('request-date', {
+            dog,
+            loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;

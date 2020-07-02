@@ -1,172 +1,175 @@
 * {
-    box-sizing: border-box;
-    }
+box-sizing: border-box;
+}
+
+body, html {
+height: 100%;
+padding: 0;
+margin: 0;
+text-decoration: none;
+color: #2e2e2e;
+transition: color .1s;
+font-family: 'Roboto', sans-serif;
+}
     
-    body, html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    color: #2e2e2e;
-    transition: color .1s;
-    font-family: 'Roboto', sans-serif;
-    }
-    
-.dog-list {
-        margin: 0;
-        padding: 0;
-    }
-    
-    textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    }
-    
-    textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid #1bb936;
-    }
-    
-    textarea {
-    min-width: 40%;
-    min-height: 100px;
-    }
-    
-    form > div {
-    margin-bottom: 0.5%;
-    }
-    
-    form label {
-    display: block;
-    }
-    
-    .wrapper {
-    width: 100%;
-    min-height: 100%;
-    /*max-width: 1200px;*/
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    }
-    
-    header {
-    border-bottom: 1px solid #ccc;
-    display: flex;
+.home {
     justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-    }
-    
-    header h1 {
-    font-size: 1em;
-    }
-    
-    main {
-    flex: 1;
-    padding: 2% 4%;
-    }
-    .logout {
-    background-size: cover;
-    background-attachment: fixed;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(https://images.unsplash.com/photo-1560743173-567a3b5658b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80);
-    background-repeat: no-repeat;
-    background-position: center center;
-    }
-    .navbar {
-        padding: .1rem 1rem;
-    }
-    .navbar-brand {
-        margin: 1rem;
-        font-size: 28px;
-        font-weight: 700;
-    }
+}
+.dog-list {
+    margin: 0;
+    padding: 0;
+}
 
-    .jumbotron {
-        background-color: rgba(233, 236, 239, 0.5)
-    }
-    .dog {
-    margin: 2%;
-    margin-left: 0;
-    line-height: 150%;
-    }
-    
-    .dog .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-    }
-    
-    .center-cropped {
-        width: auto;
-        height: 300px;
-        object-fit: cover;
-    }
-    
-    .edit-link {
-    display: inline-block;
-    margin: 0 16px 2% 0;
-    }
-    .date-link {
-        display: inline-block;
-        margin: 1.5% 0 2% 16px;
-    }
+textarea, input {
+padding: .5%;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
 
-    .review-form {
-    margin-top: 2%;
-    }
+textarea:focus, input:focus {
+outline: none;
+border: 1px solid #1bb936;
+}
 
-    .review {
-    padding: 1%;
-    margin-bottom: 1%;
-    }
-    
-    .review:nth-child(odd) {
-    background-color: #fdf4ccbe;
-    }
-    
-    .review .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-    }
-    
-    .new-pet-form input {
-    width: 300px;
-    }
-    
-    .edit-dog-form {
-    margin-bottom: 5%;
-    }
-    
-    .add {
-        margin-top: 40px;
-    }
+textarea {
+min-width: 40%;
+min-height: 100px;
+}
 
-    #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        background-color: rgba(180, 180, 180, 0.5);
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 4px;
-    }
-    #myBtn:hover {
-        background-color: #1bb936;
-    }
+form > div {
+margin-bottom: 0.5%;
+}
 
-    footer {
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
+form label {
+display: block;
+}
+
+.wrapper {
+width: 100%;
+min-height: 100%;
+/*max-width: 1200px;*/
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+}
+
+header {
+border-bottom: 1px solid #ccc;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 1%;
+}
+
+header h1 {
+font-size: 1em;
+}
+
+main {
+flex: 1;
+padding: 2% 4%;
+}
+.logout {
+background-size: cover;
+background-attachment: fixed;
+background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(https://images.unsplash.com/photo-1560743173-567a3b5658b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80);
+background-repeat: no-repeat;
+background-position: center center;
+}
+.navbar {
+    padding: .1rem 1rem;
+}
+.navbar-brand {
+    margin: 1rem;
+    font-size: 28px;
     font-weight: 700;
-    }
+}
+
+.jumbotron {
+    background-color: rgba(233, 236, 239, 0.5)
+}
+.dog {
+margin: 2%;
+margin-left: 0;
+line-height: 150%;
+}
+
+.dog .title span {
+font-style: italic;
+font-size: 90%;
+color: #7d7d7d;
+}
+
+.center-cropped {
+    width: auto;
+    height: 300px;
+    object-fit: cover;
+}
+
+.edit-link {
+display: inline-block;
+margin: 0 16px 2% 0;
+}
+.date-link {
+    display: inline-block;
+    margin: 1.5% 0 2% 16px;
+}
+
+.review-form {
+margin-top: 2%;
+}
+
+.review {
+padding: 1%;
+margin-bottom: 1%;
+}
+
+.review:nth-child(odd) {
+background-color: #fdf4ccbe;
+}
+
+.review .meta {
+font-size: 90%;
+margin-bottom: .5%;
+opacity: .6;
+}
+
+.new-pet-form input {
+width: 300px;
+}
+
+.edit-dog-form {
+margin-bottom: 5%;
+}
+
+.add {
+    margin-top: 40px;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgba(180, 180, 180, 0.5);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+#myBtn:hover {
+    background-color: #1bb936;
+}
+
+footer {
+border-top: 1px solid #ccc;
+display: flex;
+justify-content: center;
+padding: 1%;
+font-size: 110%;
+font-weight: 700;
+}

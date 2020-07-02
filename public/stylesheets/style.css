@@ -104,8 +104,12 @@
     }
     
     .edit-link {
-    display: block;
-    margin: 1.5% 0 2% 16px;
+    display: inline-block;
+    margin: 0 16px 2% 0;
+    }
+    .date-link {
+        display: inline-block;
+        margin: 1.5% 0 2% 16px;
     }
 
     .review-form {
@@ -136,7 +140,7 @@
     }
     
     .add {
-        margin-top: 10px;
+        margin-top: 40px;
     }
     footer {
     border-top: 1px solid #ccc;

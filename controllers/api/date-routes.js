@@ -70,6 +70,7 @@ router.post('/', withAuth, (req, res) => {
     if (req.session) {
         Date.create({
         date_text: req.body.date_text,
+        location: req.body.location,
         dog_id: req.body.dog_id,
         user_id: req.session.user_id
         })

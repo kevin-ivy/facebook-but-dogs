@@ -190,8 +190,6 @@ router.put('/:id',  upload.single('dogImage'), withAuth, (req, res) => {
     });
 });
 
-
-
 //Delete Dog Account
 router.delete('/:id', withAuth, (req, res) => {
     Dog.destroy({

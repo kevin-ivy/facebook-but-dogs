@@ -100,7 +100,7 @@ router.get('/dates/:id', withAuth, (req, res) => {
         include: [
             {
             model: Date,
-            attributes: ['date_text', 'created_at'],
+            attributes: ['date_text', 'location', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']

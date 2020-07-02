@@ -91,29 +91,67 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 //Find Play Dates for Dog
-router.get('/dates/:id', withAuth, (req, res) => {
+// router.get('/dates/:id', withAuth, (req, res) => {
+//     Dog.findOne({
+//         where: {
+//             id: req.params.id
+//         },
+//         attributes: [
+//             'id',
+//             'name',
+//             'age',
+//             'gender',
+//             'breed',
+//             'about',
+//             'created_at',
+//             [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
+//         ],
+//         include: [
+//             {
+//             model: Date,
+//             attributes: ['date_text'],
+//             include: {
+//                 model: User,
+//                 attributes: ['username']
+//                 }
+//             }
+//         ]
+//     })
+//     .then(dbDogData => {
+//         const dog = dbDogData.get({ plain: true });
+
+//         res.render('view-dates', {
+//             dog,
+//             loggedIn: true
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
+
+router.get('/dates/:id', (req, res) => {
     Date.findAll({
-        where: {
-            id: req.params.dog_id
-        },
-        attributes: [
-            'id',
-            'date_text',
-            'created_at'
-        ],
-        include: [
-            {
-            model: User,
-            attributes: ['username']
-            }
-        ]
+       where: {
+          dog_id: req.params.dog_id
+       },
+       include: [
+           {
+               model: Dog,
+               attributes: ['name']
+          },
+          {
+              model: User,
+              attributes: ['username']
+          }
+       ]
     })
-    .then(dbDateData => {
-        console.log(dbDateData);
-        const dates = dbDateData.get({ plain: true });
+    .then(dbDogData => {
+        const dog = dbDogData.get({ plain: true });
 
         res.render('view-dates', {
-            dates,
+            dog,
             loggedIn: true
         });
     })

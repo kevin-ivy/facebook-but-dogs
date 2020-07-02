@@ -92,22 +92,21 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-//Get all dates for single dog
-router.get('/dates/:id', (req, res) => {
-    Date.findAll({
-       where: {
-          dog_id: req.params.dog_id
-       },
-       include: [
-           {
-               model: Dog,
-               attributes: ['name']
-          },
-          {
-              model: User,
-              attributes: ['username']
-          }
-       ]
+router.get('/dates/:id', withAuth, (req, res) => {
+    Dog.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+            model: Date,
+            attributes: ['date_text'],
+            include: {
+                model: User,
+                attributes: ['username']
+                }
+            }
+        ]
     })
     .then(dbDogData => {
         const dog = dbDogData.get({ plain: true });

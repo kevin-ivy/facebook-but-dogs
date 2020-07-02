@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Date} = require('../../models');
+const {User, Date, Dog} = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -17,14 +17,24 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Date.findAll({
         where: {
-            dog_id: req.params.id
+            id: req.params.id
+        },
+        include: [
+            {
+                model: Dog,
+                attributes: ['name']
+        },
+        {
+            model: User,
+            attributes: ['username']
         }
+        ]
     })
-        .then(dbDateData => res.json(dbDateData))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+    .then(dbDateData => res.json(dbDateData))
+    .catch(err => {
+    console.log(err);
+    res.status(400).json(err);
+    });
 });
 
 //Create a Play Date

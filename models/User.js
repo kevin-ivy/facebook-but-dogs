@@ -30,6 +30,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    // define a location column
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     // define an email column
     email: {
       type: DataTypes.STRING,

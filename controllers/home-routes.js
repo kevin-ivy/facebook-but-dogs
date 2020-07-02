@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['username', 'location']
             }
         ]
     })
@@ -88,7 +88,7 @@ router.get('/dog/:id', (req, res) => {
             },
             {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'location']
             }
         ]
     })

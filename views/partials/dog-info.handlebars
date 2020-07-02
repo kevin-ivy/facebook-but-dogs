@@ -16,7 +16,7 @@
                 <small class="text-muted">
                     {{bone_count}} {{format_plural "bone" bone_count}} 
                     | <a class="text-success" href="/dog/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
-                    | City, State
+                    | {{user.location}}
                     </br>
                     Owned by {{user.username}} added {{format_date created_at}}
                 </small>

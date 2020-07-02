@@ -63,7 +63,7 @@ router.get('/', (req, res) => {
             },
             {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'location']
             }
         ]
     })
@@ -108,7 +108,7 @@ router.get('/:id', (req, res) => {
             },
             {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'location']
             }
         ]
         }).then(dbDogData => {

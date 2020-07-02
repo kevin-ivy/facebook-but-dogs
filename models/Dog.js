@@ -15,7 +15,7 @@ class Dog extends Model {
         attributes: [
           'id',
           'name',
-          //'location',
+          'location',
           'gender',
           'age',
           'breed',
@@ -44,10 +44,10 @@ Dog.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    /*location: {
+    location: {
       type: DataTypes.STRING,
       allowNull: false
-    },*/
+    },
     age: {
       type: DataTypes.INTEGER,
       allowNull: false

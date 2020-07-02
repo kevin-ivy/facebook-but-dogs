@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
                 attributes: [
                     'id', 
                     'name', 
-                    //'location', 
+                    'location', 
                     'age',
                     'gender',
                     'breed',

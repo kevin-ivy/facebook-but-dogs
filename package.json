@@ -25,6 +25,7 @@
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
-    "sequelize": "^5.21.12"
-  }
+    "sequelize": "^5.22.3"
+  },
+  "keywords": []
 }

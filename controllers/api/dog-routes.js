@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'name',
-            //'location',
+            'location',
             'age',
             'gender',
             'breed',
@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'name',
-            //'location',
+            'location',
             'gender',
             'age',
             'breed',
@@ -97,7 +97,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Dog.create({
         name: req.body.name,
-        //location: req.body.location,
+        location: req.body.location,
         age: req.body.age,
         gender: req.body.gender,
         breed: req.body.breed,

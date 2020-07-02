@@ -3,6 +3,9 @@
     {{#each dogs as |dog|}}
     
         {{> dog-info dog }}
+    <!--button appears on scroll to allow user to go back to top of page--> 
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script src="/javascript/script.js"></script>
     {{else}}
     There are currently no pets
     {{/each}}

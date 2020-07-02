@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
-const { Dog, User, Review } = require('../models');
+const { Dog, User, Review, Date} = require('../models');
 
 
 router.get('/', withAuth, (req, res) => {
@@ -46,6 +46,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
 router.get('/edit/:id', withAuth, (req, res) => {
     Dog.findOne({
         where: {
@@ -90,4 +91,76 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//Find Play Dates for Dog
+// router.get('/dates/:id', withAuth, (req, res) => {
+//     Dog.findOne({
+//         where: {
+//             id: req.params.id
+//         },
+//         attributes: [
+//             'id',
+//             'name',
+//             'age',
+//             'gender',
+//             'breed',
+//             'about',
+//             'created_at',
+//             [sequelize.literal('(SELECT COUNT(*) FROM bone WHERE dog.id = bone.dog_id)'), 'bone_count']
+//         ],
+//         include: [
+//             {
+//             model: Date,
+//             attributes: ['date_text'],
+//             include: {
+//                 model: User,
+//                 attributes: ['username']
+//                 }
+//             }
+//         ]
+//     })
+//     .then(dbDogData => {
+//         const dog = dbDogData.get({ plain: true });
+
+//         res.render('view-dates', {
+//             dog,
+//             loggedIn: true
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
+
+router.get('/dates/:id', (req, res) => {
+    Date.findAll({
+       where: {
+          dog_id: req.params.dog_id
+       },
+       include: [
+           {
+               model: Dog,
+               attributes: ['name']
+          },
+          {
+              model: User,
+              attributes: ['username']
+          }
+       ]
+    })
+    .then(dbDogData => {
+        const dog = dbDogData.get({ plain: true });
+
+        res.render('view-dates', {
+            dog,
+            loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 module.exports = router;

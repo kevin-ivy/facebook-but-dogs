@@ -131,21 +131,51 @@ router.get('/edit/:id', withAuth, (req, res) => {
 //     });
 // });
 
-router.get('/dates/:id', (req, res) => {
-    Date.findAll({
-       where: {
-          dog_id: req.params.dog_id
-       },
-       include: [
-           {
-               model: Dog,
-               attributes: ['name']
-          },
-          {
-              model: User,
-              attributes: ['username']
-          }
-       ]
+// router.get('/dates/:id', (req, res) => {
+//     Date.findAll({
+//         where: {
+//             dog_id: req.params.id
+//          },
+//          include: [
+//              {
+//                  model: Dog,
+//                  attributes: ['name']
+//             },
+//             {
+//                 model: User,
+//                 attributes: ['username']
+//             }
+//          ]
+//       })
+//     .then(dbDateData => {
+//         const dog = dbDateData.get({ plain: true });
+
+//         res.render('view-dates', {
+//             dog,
+//             loggedIn: true
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
+
+router.get('/dates/:id', withAuth, (req, res) => {
+    Dog.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+            model: Date,
+            attributes: ['date_text'],
+            include: {
+                model: User,
+                attributes: ['username']
+                }
+            }
+        ]
     })
     .then(dbDogData => {
         const dog = dbDogData.get({ plain: true });

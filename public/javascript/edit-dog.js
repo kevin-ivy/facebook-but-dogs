@@ -1,4 +1,4 @@
-async function editFormHandler(event) {
+/*async function editFormHandler(event) {
     
     event.preventDefault();
     
@@ -7,6 +7,8 @@ async function editFormHandler(event) {
     const gender = document.querySelector('input[name="gender"]').value;
     const breed = document.querySelector('input[name="breed"]').value;
     const about = document.querySelector('input[name="about"]').value;
+    const dogImage = document.querySelector('input[name="dogImage"]').value;
+
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -17,7 +19,8 @@ async function editFormHandler(event) {
             age,
             gender,
             breed,
-            about
+            about, 
+            dogImage
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -31,4 +34,37 @@ async function editFormHandler(event) {
     }
 }
 
-document.querySelector('.edit-dog-form').addEventListener('submit', editFormHandler);
+document.querySelector('.edit-dog-form').addEventListener('submit', editFormHandler);*/
+
+
+async function previewFile() {
+    const preview = document.querySelector('img');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      // convert image file to base64 string
+        preview.src = reader.result;
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+formElem.onsubmit = async (e) => {
+    e.preventDefault();
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+    let response = await fetch(`/api/dogs/${id}`, {
+        method: 'PUT',
+        body: new FormData(formElem)
+    });
+
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+        } else {
+        alert(response.statusText);
+        }
+};

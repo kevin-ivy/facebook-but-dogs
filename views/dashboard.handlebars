@@ -1,11 +1,11 @@
 {{#if dogs.length}}
 <section>
     <h2>Your Dogs</h2>
-    <div class="row">
+    <div class="row dog-list">
         {{#each dogs as |dog|}}
-        <div>
+        <div
         {{> dog-info dog}}
-        <a href="/dashboard/edit/{{dog.id}}" class="edit-link text-success">Edit dog</a>
+        <a href="/dashboard/edit/{{dog.id}}" class="edit-link text-success ">Edit dog</a>
         </div>
         {{/each}}
     </div>
@@ -14,7 +14,8 @@
 <section>
     <h2 class="add">Add a dog</h2>
 <!--<was form class="new-post-form">-->
-    <form class="new-dog-form">
+    <!--<form class="new-dog-form" action="/upload" method="post" enctype="multipart/form-data">-->
+    <form id="formElem" class="new-dog-form" method="post" enctype="multipart/form-data" action="/">
         <div>
             <!--was <label for="post-title">Title</label>-->
             <label for="name">Name</label>
@@ -40,8 +41,22 @@
             <!--<was label for="post-content">Content</label>-->
             <label for="about">About your dog</label>
             <!-- was <input class="form-control input-lg" id="post-content" name="post-content"></input>-->
-            <input class="form-control input-lg" id="about" name="about"></input></input>
+            <input class="form-control input-lg" id="about" name="about"></input>
         </div>
+        <!--<div>
+            <label for="dogImage">Your dog's photo</label>
+            <input type="text" id="dogImage" name="dogImage" placeholder="image url"/>
+        </div>-->
+        <!--<form  method="post" enctype="multipart/form-data" action="/public/uploads/">
+            <input type="file" accept="image/*" name="dogImage" >
+            <input type="submit" value="upload" class="btn btn-success">
+        </form>-->
+        <div class="form-group">
+            <label for="dogImage">Your dog's photo</label>
+            <input type="file" class="form-control-file" name="dogImage" id="dogImage" onchange="previewFile()">
+            <img src="" height="200" alt="">
+        </div>
+        
         <!--<was button type="submit" class="btn btn-info mb-5">Create</button>-->
         <button type="submit" class="btn btn-success mb-5">Add</button>
     </form>

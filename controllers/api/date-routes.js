@@ -37,6 +37,30 @@ router.get('/:id', (req, res) => {
      });
 });
 
+//Find all play date requests for a single dog
+router.get('/dogs/:dog_id', (req, res) => {
+    Date.findAll({
+       where: {
+          dog_id: req.params.dog_id
+       },
+       include: [
+           {
+               model: Dog,
+               attributes: ['name']
+          },
+          {
+              model: User,
+              attributes: ['username']
+          }
+       ]
+    })
+       .then(dbDateData => res.json(dbDateData))
+       .catch(err => {
+          console.log(err);
+          res.status(400).json(err);
+       });
+  });
+
 //Create a Play Date
 router.post('/', withAuth, (req, res) => {
     // check the session

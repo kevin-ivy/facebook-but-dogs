@@ -1,0 +1,12 @@
+<div class="dates">
+    {{#each this}}
+    <section class="date">
+        <div class="meta">
+        {{user.username}} on {{format_date created_at}}
+        </div>
+        <div class="text">
+        {{date_text}}
+        </div>
+    </section>
+    {{/each}}
+</div>

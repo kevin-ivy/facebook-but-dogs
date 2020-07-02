@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
-const { Dog, User, Review } = require('../models');
+const { Dog, User, Review, Date} = require('../models');
 
 
 router.get('/', withAuth, (req, res) => {
@@ -45,6 +45,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
 router.get('/edit/:id', withAuth, (req, res) => {
     Dog.findOne({
         where: {
@@ -88,4 +89,38 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//Find Play Dates for Dog
+router.get('/dates/:id', withAuth, (req, res) => {
+    Date.findAll({
+        where: {
+            id: req.params.dog_id
+        },
+        attributes: [
+            'id',
+            'date_text',
+            'created_at'
+        ],
+        include: [
+            {
+            model: User,
+            attributes: ['username']
+            }
+        ]
+    })
+    .then(dbDateData => {
+        console.log(dbDateData);
+        const dates = dbDateData.get({ plain: true });
+
+        res.render('view-dates', {
+            dates,
+            loggedIn: true
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 module.exports = router;

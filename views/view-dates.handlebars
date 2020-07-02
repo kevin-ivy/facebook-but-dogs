@@ -2,6 +2,10 @@
 Viewing Play Dates for {{dog.name}}
 </div>
 
+{{#if dog.dates.length}}
 <div>
 {{> dates dog.dates}}
 </div>
+{{else}}
+No dates requested for {{dog.name}}
+{{/if}}

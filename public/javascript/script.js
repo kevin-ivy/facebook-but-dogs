@@ -20,12 +20,12 @@ function opentab(evt, tabName) {
     var i, x, tablinks;
     x = document.getElementsByClassName("city");
     for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+        x[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("nav-link");
     for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" btn-success", "");
+        tablinks[i].className = tablinks[i].className.replace(" btn-success", "");
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " btn-success";
-  }
+}

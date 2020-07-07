@@ -163,6 +163,7 @@ router.put('/upbone', withAuth, (req, res) => {
 router.put('/:id',  upload.single('dogImage'), withAuth, (req, res) => {
     console.log(req.file);
     Dog.update({
+        
         name: req.body.name,
         //location: req.body.location,
         age: req.body.age,

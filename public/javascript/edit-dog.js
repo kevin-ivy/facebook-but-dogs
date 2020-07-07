@@ -46,10 +46,14 @@ async function previewFile() {
       // convert image file to base64 string
         preview.src = reader.result;
     }, false);
-
     if (file) {
         reader.readAsDataURL(file);
     }
+}
+if (dogImage) {
+    console.log ("file exists")
+} else {
+    console.log("no file")
 }
 formElem.onsubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +62,7 @@ formElem.onsubmit = async (e) => {
     ];
     let response = await fetch(`/api/dogs/${id}`, {
         method: 'PUT',
-        body: new FormData(formElem)
+        body: new FormData(formElem),
     });
 
 

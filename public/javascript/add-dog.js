@@ -54,7 +54,6 @@ formElem.onsubmit = async (e) => {
         body: new FormData(formElem)
     });
 
-
     if (response.ok) {
         document.location.replace('/dashboard');
         } else {

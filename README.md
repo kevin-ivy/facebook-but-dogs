@@ -37,8 +37,8 @@
   There are currently no tests for this application.
   ## Questions
   If you have any questions about the repo, open an issue or contact us directly.
-  * [GitHub - Saul](github.com/saul10huerta)
-  * [GitHub - Katelyn](github.com/Kaynalem)
-  * [GitHub - Kevin](github.com/kevin-ivy)
-  * [GitHub - Courtney](github.com/clstanton)
+  * [GitHub - Saul](https://github.com/saul10huerta)
+  * [GitHub - Katelyn](https://github.com/Kaynalem)
+  * [GitHub - Kevin](https://github.com/kevin-ivy)
+  * [GitHub - Courtney](https://github.com/clstanton)
   

@@ -43,7 +43,17 @@ Date.init(
         model: 'dog',
         key: 'id'
       }
-    }
+    },
+    //See if the date was accepted or declined
+    accept: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+      //See if the date has a response at all
+      responded: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+      }
   },
   {
     sequelize,

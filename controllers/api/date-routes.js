@@ -72,7 +72,9 @@ router.post('/', withAuth, (req, res) => {
         date_text: req.body.date_text,
         location: req.body.location,
         dog_id: req.body.dog_id,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        accept: null,
+        responded: false
         })
         .then(dbDateData => res.json(dbDateData))
         .catch(err => {
@@ -81,6 +83,29 @@ router.post('/', withAuth, (req, res) => {
         });
     }
 });
-//Not including options to Delete or Update Play Dates at this time
+
+//Update Date to change Accept to True or False
+router.put('/:id', (req, res) => {
+    Date.update(
+        {
+            accept: req.body.accept,
+            responded: req.body.responded
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    ).then(dbDateUpdate => {
+        if (!dbDateUpdate){
+            res.status(404).json({message: 'No date found with this id'});
+            return;
+        }
+        res.json(dbDateUpdate);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;

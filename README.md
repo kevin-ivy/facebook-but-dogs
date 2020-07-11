@@ -27,7 +27,7 @@
   * To exit the MySQL command line, type `quit;` or `exit;`
   * Once updated, run `npm start` in your terminal and visit http://localhost:3001/ to get started!
   
-  Or use this live link here!
+  Or use the live link [here](https://whats-up-dog.herokuapp.com)!
 
   ## License
   Licensed under MIT.

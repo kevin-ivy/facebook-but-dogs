@@ -1,0 +1,25 @@
+<article class="dog mr-4 my-4">
+        <div class="title card h-100 border-success bg-light">
+            <!--<img class="card-img-top center-cropped" src="{{dogImage}}" alt="Card image cap">-->
+            <img class="card-img-top center-cropped" src="../uploads/{{dogImage}}" alt="Card image cap">
+            <div class="card-header h-100">
+                <a class="card-title font-weight-bold text-decoration-none text-success" href="/dog/{{id}}"><h3>{{name}}</h3></a>
+                <p class="card-text">{{about}}</p>
+            </div>
+            <ul class="list-group list-group-flush bg-light">
+                <li class="list-group-item">Age {{age}}</li>
+                <li class="list-group-item">{{gender}}</li>
+                <li class="list-group-item">{{breed}}</li>
+                
+            </ul>
+            <div class="meta card-footer text-right">
+                <small class="text-muted">
+                    {{bone_count}} {{format_plural "bone" bone_count}} 
+                    | <a class="text-success" href="/dog/{{id}}">{{reviews.length}} {{format_plural "review" reviews.length}}</a>
+                    | {{user.location}}
+                    </br>
+                    Owned by {{user.username}} added {{format_date created_at}}
+                </small>
+            </div>
+        </div>
+</article>

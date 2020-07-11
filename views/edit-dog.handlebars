@@ -3,37 +3,51 @@
     <h2>
         Edit Dog
     </h2>
-    <form class="edit-dog-form" id="formElem">
+    <form class="edit-dog-form needs-validation" id="formElem" novalidate>
         <div>
             <div>
                 <label for="name">Name</label>
-                <input name="name" type="text" value="{{dog.name}}" />
+                <input name="name" type="text" value="{{dog.name}}" required/>
+                <div class="invalid-feedback">
+                Please provide your dog's name.
+                </div>
             </div>
             <div>
                 <label for="age">Age</label>
-                <input name="age" type="text" value="{{dog.age}}" />
+                <input name="age" type="text" value="{{dog.age}}" required/>
+                <div class="invalid-feedback">
+                Please provide your dog's age.
+                </div>
             </div>
             <div>
                 <label for="gender">Gender</label>
-                <input name="gender" type="text" value="{{dog.gender}}" />
+                <input name="gender" type="text" value="{{dog.gender}}" required/>
+                <div class="invalid-feedback">
+                Please provide your dog's gender.
+                </div>
             </div>
             <div>
                 <label for="breed">Breed</label>
-                <input name="breed" type="text" value="{{dog.breed}}" />
+                <input name="breed" type="text" value="{{dog.breed}}" required/>
+                <div class="invalid-feedback">
+                Please provide your dog's breed.
+                </div>
             </div>
             <div>
                 <label for="about">About your dog</label>
-                <input class="textarea form-control input-lg" name="about" type="text" value="{{dog.about}}"></input>
+                <input class="textarea form-control input-lg" name="about" type="text" value="{{dog.about}}" required/>
+                <div class="invalid-feedback">
+                Please provide information about your dog.
+                </div>
             </div>
             <div class="form-group">
                 <label for="dogImage">Your dog's photo</label>
-                <input type="file" class="form-control-file" name="dogImage" id="dogImage" onchange="previewFile()">
+                <input type="file" class="form-control-file" name="dogImage" id="dogImage" onchange="previewFile()" required/>
+                <div class="invalid-feedback">
+                Please choose a photo of your dog to upload.
+                </div>
                 <img src="/uploads/{{dog.dogImage}}" name="dogImage" height="200" alt="">
             </div>
-            <!--<div>
-                <label for="about">Your dog's photo</label>
-                <input type="text" id="dogImage" name="dogImage" value="{{dog.dogImage}}"/>
-            </div>-->
         </div>
         <div>
         {{dog.bone_count}} {{format_plural "bone" dog.bone_count}} by you on {{format_date dog.created_at}}

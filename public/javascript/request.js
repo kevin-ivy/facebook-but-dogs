@@ -18,6 +18,6 @@ async function openRequestWindow(event) {
         alert(response.statusText);
     }
 
-  };
+};
 
-  document.querySelector('#request-date').addEventListener('click', openRequestWindow);
+document.querySelector('#request-date').addEventListener('click', openRequestWindow);

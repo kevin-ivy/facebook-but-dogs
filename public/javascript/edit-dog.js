@@ -1,41 +1,3 @@
-/*async function editFormHandler(event) {
-    
-    event.preventDefault();
-    
-    const name = document.querySelector('input[name="name"]').value;
-    const age = document.querySelector('input[name="age"]').value;
-    const gender = document.querySelector('input[name="gender"]').value;
-    const breed = document.querySelector('input[name="breed"]').value;
-    const about = document.querySelector('input[name="about"]').value;
-    const dogImage = document.querySelector('input[name="dogImage"]').value;
-
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch(`/api/dogs/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            name,
-            age,
-            gender,
-            breed,
-            about, 
-            dogImage
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    
-    if (response.ok) {
-        document.location.replace('/dashboard/');
-    } else {
-        alert(response.statusText);
-    }
-}
-
-document.querySelector('.edit-dog-form').addEventListener('submit', editFormHandler);*/
-
 
 async function previewFile() {
     const preview = document.querySelector('img');
@@ -69,6 +31,25 @@ formElem.onsubmit = async (e) => {
     if (response.ok) {
         document.location.replace('/dashboard');
         } else {
-        alert(response.statusText);
+        //alert("Please complete all fields to update your dog");
         }
 };
+
+// disables form submissions if there are invalid fields
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    }, false);
+    });
+}, false);
+})();

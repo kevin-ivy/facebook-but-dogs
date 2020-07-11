@@ -28,16 +28,22 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <form class="request-form">
+                <form class="request-form needs-validation" novalidate>
                     <div>
                         <span>Where should we meet?</span>
-                        <input class="form-control mb-2" name="location" placeholder="Location" id="date-location"></input>
+                        <input class="form-control mb-2" name="location" placeholder="Location" id="date-location" required/>
+                        <div class="invalid-feedback">
+                        Please provide a location to meet.
+                        </div>
                         <span>Additional information</span>
-                        <textarea class="form-control mb-2" name="request-body" placeholder="Tell me about yourself"></textarea>
+                        <textarea class="form-control mb-2" name="request-body" placeholder="Tell me about yourself" required></textarea>
+                        <div class="invalid-feedback">
+                        Please provide your information.
+                        </div>
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-success" id="submit-request">Submit Request</button>
+                        <button type="submit" class="btn btn-success" id="submit-request">Submit Request</button>
                     </div>
                 </form>
             </div>

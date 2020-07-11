@@ -32,9 +32,9 @@
   ## Credits
   Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopes, Courtney Stanton.
   ## Tests
-  Create an account, type in your credentials and begin using!
+  There are currently no tests for this application.
   ## Questions
-  Please feel free to contact us. GitHub links provided below.
+  If you have any questions about the repo, open an issue or contact us directly.
   * [GitHub - Saul](github.com/saul10huerta)
   * [GitHub - Katelyn](github.com/Kaynalem)
   * [GitHub - Kevin](github.com/kevin-ivy)

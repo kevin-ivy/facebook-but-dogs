@@ -32,13 +32,13 @@
   ## License
   Licensed under MIT.
   ## Credits
-  Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopes, Courtney Stanton.
+  Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopes, and Courtney Stanton.
   ## Tests
   There are currently no tests for this application.
   ## Questions
   If you have any questions about the repo, open an issue or contact us directly.
-  * [GitHub - Saul](https://github.com/saul10huerta)
-  * [GitHub - Katelyn](https://github.com/Kaynalem)
-  * [GitHub - Kevin](https://github.com/kevin-ivy)
-  * [GitHub - Courtney](https://github.com/clstanton)
+  * [GitHub - Saul Huerta](https://github.com/saul10huerta)
+  * [GitHub - Kevin Ivy](https://github.com/kevin-ivy)
+  * [GitHub - Katelyn Lopes](https://github.com/Kaynalem)
+  * [GitHub - Courtney Stanton](https://github.com/clstanton)
   

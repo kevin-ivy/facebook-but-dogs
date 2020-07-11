@@ -30,7 +30,7 @@
   ## License
   Licensed under MIT.
   ## Credits
-  Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopez, Courtney Stanton.
+  Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopes, Courtney Stanton.
   ## Tests
   Create an account, type in your credentials and begin using!
   ## Questions

@@ -2,6 +2,8 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
   ## Description
   UpDog is a webapp for users to look at other dogs in the area with a motivation to be able to easily find other dogs near by in order for pet owners to be able to schedule and set up playdates for their dogs.
+  ## Technologies used
+  bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, sequelize, multer (new technology used).
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)

@@ -22,7 +22,7 @@
   npm install 
   ```
   ## Usage
-  * Be sure to create the .env file in your root directory with your MySQL user/password information.  
+   * Be sure to create the .env file in your root directory with your MySQL user/password information.  
   ```
   DB_NAME='dogbook_db'
   DB_USER='root'

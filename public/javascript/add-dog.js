@@ -19,7 +19,7 @@ formElem.onsubmit = async (e) => {
 
     let response = await fetch('/api/dogs', {
         method: 'POST',
-        //body: new FormData(formElem)
+        body: new FormData(formElem)
     });
 
     if (response.ok) {

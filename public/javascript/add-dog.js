@@ -28,7 +28,6 @@ formElem.onsubmit = async (e) => {
         //alert("Please complete all fields to add your dog");
         }
 };
-
 // disables form submissions if there are invalid fields
 (function() {
     'use strict';

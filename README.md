@@ -22,6 +22,12 @@
   npm install 
   ```
   ## Usage
+  * Be sure to create the .env file in your root directory with your MySQL user/password information.  
+  ```
+  DB_NAME='dogbook_db'
+  DB_USER='root'
+  DB_PW='your password'  
+  ```
   * To initiate the MySQL command line, type: `mysql -u root -p` in your command line and then your MySQL password.
   * To execute the `schema.sql` file, type into the MySQL command line: `source db/schema.sql`
   * To exit the MySQL command line, type `quit;` or `exit;`

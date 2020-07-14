@@ -1,9 +1,9 @@
-async function deleteFormHandler(event) {d
+async function deleteFormHandler(event) {
     event.preventDefault(); 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    const response = await fetch(`/api/dogs/${id}`, {
+    const response = await fetch(`/api/dogs/${id}`,  {
         method: 'DELETE',
         body: JSON.stringify({
             dog_id: id

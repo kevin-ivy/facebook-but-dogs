@@ -21,5 +21,5 @@ async function upboneClickHandler(event) {
     alert(response.statusText);
     }
 }
-
+ 
 document.querySelector('.upbone-btn').addEventListener('click', upboneClickHandler);

@@ -1,16 +1,56 @@
-<h2 class="text-center">Request Play Date</h2>
+<h2 class="text-center">Request Play Date with {{dog.name}}</h2>
 
-{{> dog-info dog }}
+<article class="dog mr-4 my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title card h-100 border-success bg-light">
+                    <img class="card-img-top center-cropped" src="/uploads/{{dog.dogImage}}" alt="Card image cap">
+                    <div class="card-header h-100">
+                        <a class="card-title font-weight-bold text-decoration-none text-success" href="/dog/{{dog.id}}"><h3>{{dog.name}}</h3></a>
+                        <p class="card-text">{{dog.about}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush bg-light">
+                        <li class="list-group-item">Age {{dog.age}}</li>
+                        <li class="list-group-item">{{dog.gender}}</li>
+                        <li class="list-group-item">{{dog.breed}}</li>
+                        
+                    </ul>
+                    <div class="meta card-footer text-right">
+                        <small class="text-muted">
+                            {{dog.bone_count}} {{format_plural "bone" dog.bone_count}} 
+                            | <a class="text-success" href="/dog/{{id}}">{{dog.reviews.length}} {{format_plural "review" dog.reviews.length}}</a>
+                            | {{dog.user.location}}
+                            </br>
+                            Owned by {{dog.user.username}} added {{format_date dog.created_at}}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <form class="request-form needs-validation" novalidate>
+                    <div>
+                        <span>Where should we meet?</span>
+                        <input class="form-control mb-2" name="location" placeholder="Location" id="date-location" required/>
+                        <div class="invalid-feedback">
+                        Please provide a location to meet.
+                        </div>
+                        <span>Additional information</span>
+                        <textarea class="form-control mb-2" name="request-body" placeholder="Tell me about yourself" required></textarea>
+                        <div class="invalid-feedback">
+                        Please provide your information.
+                        </div>
+                    </div>
 
-<form class="request-form">
-    <div>
-        <input name="location" placeholder="Where should we meet?" id="date-location"></input>
-        <textarea name="request-body" placeholder="Tell me about yourself"></textarea>
+                    <div>
+                        <button type="submit" class="btn btn-success" id="submit-request">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</article>
 
-    <div>
-        <button type="button" class="btn btn-success" id="submit-request">Submit Request</button>
-    </div>
-</form>
+
 
 <script src="/javascript/submit-request.js"></script>

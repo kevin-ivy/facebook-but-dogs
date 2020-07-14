@@ -14,51 +14,50 @@
 {{/if}}
 <section>
     <h2 class="add">Add a dog</h2>
-<!--<was form class="new-post-form">-->
-    <!--<form class="new-dog-form" action="/upload" method="post" enctype="multipart/form-data">-->
-    <form id="formElem" class="new-dog-form" method="post" enctype="multipart/form-data" action="/">
+    <form id="formElem" class="new-dog-form needs-validation" method="post" enctype="multipart/form-data" action="/" novalidate>
         <div>
-            <!--was <label for="post-title">Title</label>-->
             <label for="name">Name</label>
-            <!--was <input type="text" id="post-title" name="post-title" />-->
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" required/>
+            <div class="invalid-feedback">
+                Please provide your dog's name.
+            </div>
         </div>
         <div>
-            <!--new field-->
             <label for="age">Age</label>
-            <input type="text" id="age" name="age" />
+            <input type="text" id="age" name="age" required/>
+            <div class="invalid-feedback">
+                Please provide your dog's age.
+            </div>
         </div>
         <div>
-            <!--new field-->
             <label for="gender">Gender</label>
-            <input type="text" id="gender" name="gender" />
+            <input type="text" id="gender" name="gender" required/>
+            <div class="invalid-feedback">
+                Please provide your dog's gender.
+            </div>
         </div>
         <div>
-            <!--new field-->
             <label for="breed">Breed</label>
-            <input type="text" id="breed" name="breed" />
+            <input type="text" id="breed" name="breed" required/>
+            <div class="invalid-feedback">
+                Please provide your dog's breed.
+            </div>
         </div>
         <div>
-            <!--<was label for="post-content">Content</label>-->
             <label for="about">About your dog</label>
-            <!-- was <input class="form-control input-lg" id="post-content" name="post-content"></input>-->
-            <input class="form-control input-lg" id="about" name="about"></input>
+            <input class="form-control input-lg" id="about" name="about" required/>
+            <div class="invalid-feedback">
+                Please provide information about your dog.
+            </div>
         </div>
-        <!--<div>
-            <label for="dogImage">Your dog's photo</label>
-            <input type="text" id="dogImage" name="dogImage" placeholder="image url"/>
-        </div>-->
-        <!--<form  method="post" enctype="multipart/form-data" action="/public/uploads/">
-            <input type="file" accept="image/*" name="dogImage" >
-            <input type="submit" value="upload" class="btn btn-success">
-        </form>-->
         <div class="form-group">
             <label for="dogImage">Your dog's photo</label>
-            <input type="file" class="form-control-file" name="dogImage" id="dogImage" onchange="previewFile()">
+            <input type="file" class="form-control-file" name="dogImage" id="dogImage" onchange="previewFile()" required/>
+            <div class="invalid-feedback">
+                Please choose a photo of your dog to upload.
+            </div>
             <img src="" height="200" alt="">
         </div>
-        
-        <!--<was button type="submit" class="btn btn-info mb-5">Create</button>-->
         <button type="submit" class="btn btn-success mb-5">Add</button>
     </form>
 </section>

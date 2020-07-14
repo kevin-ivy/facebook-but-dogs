@@ -15,22 +15,34 @@
     <h1 class="display-4">What's UpDog?</h1>
     <p class="lead">Connect with other dog owners to help your furry friends meet up to play!</p>
 
-    <form class="signup-form">
+    <form class="signup-form needs-validation" novalidate>
         <div>
             <label for="username-signup">Name</label>
-            <input type="text" id="username-signup" placeholder="Ex. John D"/>
+            <input type="text" id="username-signup" placeholder="Ex. John D" required/>
+            <div class="invalid-feedback">
+                Please provide your name.
+            </div>
         </div>
         <div>
             <label for="location-signup">Location</label>
-            <input type="text" id="location-signup" placeholder="City, State"/>
+            <input type="text" id="location-signup" placeholder="City, State" required/>
+            <div class="invalid-feedback">
+                Please provide your location.
+            </div>
         </div>
         <div>
             <label for="email-signup">Email address</label>
-            <input type="text" id="email-signup" placeholder="name@example.com"/>
+            <input type="text" id="email-signup" placeholder="name@example.com" required/>
+            <div class="invalid-feedback">
+                Please provide a valid e-mail address.
+            </div>
         </div>
         <div>
             <label for="password-signup">Password</label>
-            <input type="password" id="password-signup" placeholder="Password"/>
+            <input type="password" id="password-signup" placeholder="Password" required/>
+            <div class="invalid-feedback">
+                Password must be at least four characters long.
+            </div>
         </div>
         <div>
             <button type="submit" class="btn btn-success text-white">Sign Up</button>

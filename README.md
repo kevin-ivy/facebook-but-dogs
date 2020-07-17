@@ -38,6 +38,7 @@
 
   ## License
   Licensed under MIT.
+  Apache License, Version 2.0 (Google Maps)
   ## Credits
   Application created with the help of Saul Huerta, Kevin Ivy, Katelyn Lopes, and Courtney Stanton.
   ## Tests

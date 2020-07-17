@@ -1,9 +1,9 @@
 # UpDog
   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
   ## Description
-  UpDog is a webapp for users to look at other dogs in the area with a motivation to be able to easily find other dogs near by in order for pet owners to be able to schedule and set up playdates for their dogs.
+  UpDog is a webapp for users to look at other dogs in the area with a motivation to be able to easily find other dogs nearby in order for pet owners to be able to schedule and set up playdates for their dogs.
   ## Technologies used
-  bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, sequelize, multer (new technology used).
+  bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, sequelize, Google maps javascript & places APIs, multer (new technology used).
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -15,6 +15,7 @@
   ![homepage](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/homepage.PNG)
   ![userprofile](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/mydogs.PNG)
   ![dogprofile](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/dogprofiles.PNG)
+  ![nearby](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/nearby.PNG)
   
   ## Installation
   To install necessary dependencies, run the following command in your terminal:

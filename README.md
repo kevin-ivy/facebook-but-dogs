@@ -14,7 +14,7 @@
   
   ![homepage](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/homepage.PNG)
   ![userprofile](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/mydogs.PNG)
-  ![dogprofile](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/dogprofile.PNG)
+  ![dogprofile](https://raw.githubusercontent.com/kevin-ivy/facebook-but-dogs/develop/utils/images/dogprofiles.PNG)
   
   ## Installation
   To install necessary dependencies, run the following command in your terminal:
